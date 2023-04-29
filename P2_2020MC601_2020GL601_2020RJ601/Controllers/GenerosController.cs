@@ -55,7 +55,7 @@ namespace P2_2020MC601_2020GL601_2020RJ601.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_genero,nombre_departamento")] Generos generos)
+        public async Task<IActionResult> Create([Bind("id_genero,nombre_genero")] Generos generos)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace P2_2020MC601_2020GL601_2020RJ601.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_genero,nombre_departamento")] Generos generos)
+        public async Task<IActionResult> Edit(int id, [Bind("id_genero,nombre_genero")] Generos generos)
         {
             if (id != generos.id_genero)
             {
