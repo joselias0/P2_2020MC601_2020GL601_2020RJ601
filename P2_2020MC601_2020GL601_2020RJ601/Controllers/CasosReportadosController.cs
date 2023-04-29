@@ -34,5 +34,12 @@ namespace P2_2020MC601_2020GL601_2020RJ601.Controllers
             ViewData["listadoDeCasos"] = listadoDeCasos;
             return View();
 		}
+
+		public IActionResult CrearCaso(CasosReportados nuevoCaso)
+		{
+			_CovidContext.Add(nuevoCaso);
+			_CovidContext.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
