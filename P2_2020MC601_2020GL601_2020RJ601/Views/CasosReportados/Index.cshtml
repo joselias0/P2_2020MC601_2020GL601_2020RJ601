@@ -22,10 +22,10 @@
 
 		<div class="row mb-3">
 			<div class="col-sm-6">
-				@Html.DropDownList("ddldrop", ViewData["listadoDeDepartamento"] as SelectList,"Seleccionar un departamento...", new {@class="form-control"})
+				@Html.DropDownList("id_departamento", ViewData["listadoDeDepartamento"] as SelectList,"Seleccionar un departamento...", new {@class="form-control"})
 			</div>
 			<div class="col-sm-6">
-				@Html.DropDownList("ddldrop", ViewData["listadoDeGenero"] as SelectList,"Seleccionar un Género...", new {@class="form-control"})
+				@Html.DropDownList("id_genero", ViewData["listadoDeGenero"] as SelectList,"Seleccionar un Género...", new {@class="form-control"})
 			</div>
 		</div>
 		@**@
@@ -43,13 +43,13 @@
 
 		<div class="row mb-3">
 			<div class="col-sm-4">
-				@Html.TextBox("lblbDepartamento","", new {@class="form-control"})
+				@Html.TextBox("casosConfirmados","", new {@class="form-control"})
 			</div>
 			<div class="col-sm-4">
-				@Html.TextBox("lblbDepartamento","", new {@class="form-control"})
+				@Html.TextBox("casosRecuperados","", new {@class="form-control"})
 			</div>
 			<div class="col-sm-4">
-				@Html.TextBox("lblbDepartamento","", new {@class="form-control"})
+				@Html.TextBox("casosFallecidos","", new {@class="form-control"})
 			</div>
 		</div>
 
@@ -78,13 +78,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Dato 1</td>
-					<td>Dato 2</td>
-					<td>Dato 2</td>
-					<td>Dato 2</td>
-					<td>Dato 2</td>
-				</tr>
+				@foreach (var casos in (IEnumerable<dynamic>)ViewData["listadoDeCasos"])
+				{
+					<tr>
+						<td>@casos.departamento</td>
+						<td>@casos.genero</td>
+						<td>@casos.confirmados</td>
+						<td>@casos.recuperados</td>
+						<td>@casos.fallecidos</td>
+					</tr>
+				}
+
 			</tbody>
 		</table>
 
